@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+#export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -51,12 +51,21 @@ ZSH_THEME="juanghurtado"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git vi-mode osx brew brew-cask)
 
+# Load all of the plugins that were defined in ~/.zshrc
+for plugin ($plugins); do
+  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+  fi
+done
+
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8

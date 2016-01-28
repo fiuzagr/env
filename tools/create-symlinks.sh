@@ -24,6 +24,11 @@ main() {
   # which may fail on systems lacking tput or terminfo
   set -e
 
+  # Set MY_ENV
+  if [ ! -n "$MY_ENV" ]; then
+    MY_ENV=~/.my-env
+  fi
+
   # VIMRC
   printf "${BLUE}Creating symbolic links...${NORMAL}\n"
   {

@@ -24,11 +24,6 @@ main() {
   # which may fail on systems lacking tput or terminfo
   set -e
 
-
-  # Install Oh-My-Zsh
-  env sh ./install-omz.sh
-
-
   # Check MY_ENV
   if [ ! -n "$MY_ENV" ]; then
     MY_ENV=~/.my-env
@@ -56,6 +51,11 @@ main() {
     printf "Error: git clone of env repo failed\n"
     exit 1
   }
+
+  cd $MY_ENV
+
+  # Install Oh-My-Zsh
+  env sh ./install-omz.sh
 
 
   # Create symbolic links

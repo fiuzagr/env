@@ -62,7 +62,7 @@ done
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 #source $ZSH/oh-my-zsh.sh
@@ -95,5 +95,5 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 
 # TMUX
-if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi
-#if [ "$TMUX" = "" ]; then tmux; fi
+#if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi
+if [ "$TMUX" = "" ]; then tmux; fi

@@ -62,6 +62,13 @@ main() {
   env sh ./create-symlinks.sh
 
 
+  # Install Plug.vim
+  env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
+    printf "Error: Plug.vim install failed\n"
+    exit 1
+  }
+
+
   printf "${GREEN}"
   echo ''
   echo '----------------------------'

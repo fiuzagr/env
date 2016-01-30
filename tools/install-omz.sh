@@ -33,7 +33,9 @@ main() {
     printf "Error: oh-my-zsh install failed\n"
     exit 1
   }
-
+  
+  # oh-my-zsh enter on zsh. But we need finish the install my-env
+  exit
 }
 
 main

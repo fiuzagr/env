@@ -52,14 +52,13 @@ main() {
     exit 1
   }
 
-  cd $MY_ENV
 
   # Install Oh-My-Zsh
-  env sh ./install-omz.sh
+  env sh $MY_ENV/install-omz.sh
 
 
   # Create symbolic links
-  env sh ./create-symlinks.sh
+  env sh $MY_ENV/create-symlinks.sh
 
 
   # Install Plug.vim

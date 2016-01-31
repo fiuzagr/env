@@ -66,6 +66,18 @@ main() {
     exit 1
   }
 
+  # Git config
+  {
+    if [ -f ~/.gitconfig ] || [ -h ~/.gitconfig ]; then
+      printf "${YELLOW}Found ~/.gitconfig.${NORMAL} ${GREEN}Backing up to ~/.gitconfig.pre-my-env${NORMAL}\n";
+      mv ~/.gitconfig ~/.gitconfig.pre-my-env;
+    fi
+    ln -s $MY_ENV/git/.gitconfig ~/.gitconfig
+  } || {
+    echo "Error: gitconfig symbolic link crash"
+    exit 1
+  }
+
 }
 
 main

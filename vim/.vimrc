@@ -444,11 +444,12 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='molokai'
+let g:airline_powerline_fonts = 0
+let g:airline_theme='dark'
 
 " Tmux line
 Plug 'edkolev/tmuxline.vim'
+let g:tmuxline_powerline_separators = 0
 
 " CtrlP
 Plug 'kien/ctrlp.vim'

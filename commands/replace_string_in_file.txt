@@ -1,0 +1,1 @@
+cat test.txt | sed "s/exit 0/test ===&/" | tr "=" "\n"

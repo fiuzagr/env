@@ -141,8 +141,8 @@ set number
 " Enable syntax highlighting
 syntax enable
 
-colorscheme desert
-set background=dark
+"colorscheme wombat256mod
+"set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -440,12 +440,30 @@ call plug#begin()
 " Sensible
 Plug 'tpope/vim-sensible'
 
+" Vim colors
+Plug 'flazz/vim-colorschemes'
+Plug 'Valloric/vim-valloric-colorscheme'
+
 " Airline
 Plug 'vim-airline/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 1
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 0
-let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols = {}
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " Tmux line
 Plug 'edkolev/tmuxline.vim'
@@ -605,3 +623,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end() " END Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Color scheme should be defined after Plug
+colo valloric
+

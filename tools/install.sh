@@ -54,7 +54,7 @@ main() {
 
 
   # Install Oh-My-Zsh
-  env sh $MY_ENV/tools/install-omz.sh
+  env sh $MY_ENV/tools/install-omz.sh > /dev/null
 
 
   # Create symbolic links

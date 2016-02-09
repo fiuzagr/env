@@ -13,3 +13,8 @@ export NVM_DIR="$HOME/.nvm"
 # PHPBREW
 export PHPBREW_HOME="$HOME/.phpbrew"
 [[ -e "$PHPBREW_HOME/bashrc" ]] && source "$PHPBREW_HOME/bashrc"
+
+
+# Manja
+export MANJA_DIR="$HOME/.manja"
+[ -s "$MANJA_DIR/manja.sh" ] && . "$MANJA_DIR/manja.sh"

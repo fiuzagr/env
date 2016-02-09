@@ -92,6 +92,7 @@ export EDITOR='vim'
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
+alias tmux="tmux -2" # enable 256 colors
 
 
 # TMUX

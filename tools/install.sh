@@ -44,17 +44,17 @@ main() {
 
   printf "${BLUE}Cloning MY_ENV...${NORMAL}\n"
   hash git >/dev/null 2>&1 || {
-    echo "Error: git is not installed"
+    printf "${RED}Error: git is not installed${NORMAL}\n\n"
     exit 1
   }
   env git clone --depth=1 https://github.com/fiuzagr/env.git $MY_ENV || {
-    printf "Error: git clone of env repo failed\n"
+    printf "${RED}Error: git clone of env repo failed${NORMAL}\n\n"
     exit 1
   }
 
 
   # Install Oh-My-Zsh
-  env sh $MY_ENV/tools/install-omz.sh > /dev/null
+  env sh $MY_ENV/tools/install-omz.sh
 
 
   # Create symbolic links
@@ -63,7 +63,13 @@ main() {
 
   # Install Plug.vim
   env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
-    printf "Error: Plug.vim install failed\n"
+    printf "${RED}Error: Plug.vim install failed${NORMAL}\n\n"
+    exit 1
+  }
+
+  # Install tmp tmux plugin
+  env git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm || {
+    printf "${RED}Error: TPM install failed${NORMAL}\n\n"
     exit 1
   }
 
@@ -77,5 +83,5 @@ main() {
   printf "${NORMAL}"
   env zsh
 }
-
 main
+

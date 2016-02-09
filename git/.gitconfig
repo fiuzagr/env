@@ -1,13 +1,13 @@
 [push]
-	default = simple
+  default = simple
 [user]
-	name = fiuzagr
-	email = gui.fiuza@gmail.com
+  name = fiuzagr
+  email = gui.fiuza@gmail.com
 [alias]
   undo = reset --soft HEAD~1
   find-deleted = rev-list -n 1 HEAD
   recovery-deleted = !sh -c 'git checkout $(git find-deleted -- "$1")^ -- "$1"' -
 [credential]
-	helper = cache --timeout=360000
+  helper = cache --timeout=360000
 [core]
-	editor = vim
+  editor = vim

@@ -26,14 +26,25 @@ main() {
 
   printf "${BLUE}Installing Oh-My-Zsh...${NORMAL}\n"
   hash wget >/dev/null 2>&1 || {
-    echo "Error: wget is not installed"
+    printf "${RED}Error: wget is not installed${NORMAL}\n\n"
     exit 1
   }
-  env sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" || {
-    printf "Error: oh-my-zsh install failed\n"
+
+  # get install.sh
+  env wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh
+
+  # does not change env
+  sed -i -e "s/env zsh/#env zsh/" /tmp/install-oh-my-zsh.sh
+
+  # execute
+  sh /tmp/install-oh-my-zsh.sh || {
+    printf "${RED}Error: oh-my-zsh install failed${NORMAL}\n\n"
     exit 1
   }
+
+  # remove tmp file
+  rm -f /tmp/install-oh-my-zsh.sh
 
 }
-
 main
+

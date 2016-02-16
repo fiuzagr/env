@@ -539,6 +539,36 @@ Plug 'moll/vim-bbye'
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
 
+" Syntastic
+Plug 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_exec = 'tidy'
+
+" Git Gutter
+Plug 'airblade/vim-gitgutter'
+
+" Vim Multiple Cursors
+Plug 'terryma/vim-multiple-cursors'
+" Prevent conflict with neocomplete
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
 " YouCompleteMe
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
 

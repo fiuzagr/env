@@ -444,6 +444,10 @@ Plug 'tpope/vim-sensible'
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/vim-valloric-colorscheme'
 
+" Devicons
+Plug 'ryanoasis/vim-devicons'
+
+
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -653,6 +657,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end() " END Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 " Color scheme should be defined after Plug
 colo valloric

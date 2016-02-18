@@ -142,7 +142,8 @@ set number
 syntax enable
 
 "colorscheme wombat256mod
-"set background=dark
+set background=dark
+
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -441,12 +442,15 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 
 " Vim colors
-Plug 'flazz/vim-colorschemes'
-Plug 'Valloric/vim-valloric-colorscheme'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'Valloric/vim-valloric-colorscheme'
+Plug 'nanotech/jellybeans.vim'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'
 
+" Vim diff
+Plug 'chrisbra/vim-diff-enhanced'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -513,7 +517,7 @@ Plug 'spf13/vim-preview'
 Plug 'xsbeats/vim-blade'
 
 " Vim Jade template
-Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-pug'
 
 " Vim Less CSS
 Plug 'groenewege/vim-less'
@@ -533,11 +537,20 @@ Plug 'tmux-plugins/vim-tmux'
 " Vim todo
 Plug 'dhruvasagar/vim-dotoo'
 
+" Easy Motion
+Plug 'easymotion/vim-easymotion'
+
+" Surround
+Plug 'tpope/vim-surround'
+
 " Vim Bclose
 "Plug 'rbgrouleff/bclose.vim'
 
 " Vim buffer bye
 Plug 'moll/vim-bbye'
+
+" Vim CSS Color
+Plug 'ap/vim-css-color'
 
 " Vim Dash.app
 Plug 'rizzatti/dash.vim'
@@ -640,13 +653,14 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
@@ -658,7 +672,8 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 call plug#end() " END Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 " Color scheme should be defined after Plug
-colo valloric
+"colo valloric
+colo jellybeans
+set background=dark
 

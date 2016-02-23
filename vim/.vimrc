@@ -162,8 +162,8 @@ set ffs=unix,dos,mac
 " highlight column 80
 " let &colorcolumn=join(range(81,999),",")
 "let &colorcolumn="80,".join(range(120,999),",")
-let &colorcolumn="80"
-hi ColorColumn ctermfg=235 guifg=#262626
+"let &colorcolumn="80"
+"hi ColorColumn ctermfg=235 guifg=#262626
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -675,5 +675,6 @@ call plug#end() " END Plugins
 " Color scheme should be defined after Plug
 "colo valloric
 colo jellybeans
-set background=dark
+"set background=dark
+"hi Normal ctermbg=Black ctermfg=Black guifg=Black guibg=Black
 

@@ -442,8 +442,8 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 
 " Vim colors
-"Plug 'flazz/vim-colorschemes'
-"Plug 'Valloric/vim-valloric-colorscheme'
+Plug 'flazz/vim-colorschemes'
+Plug 'Valloric/vim-valloric-colorscheme'
 Plug 'nanotech/jellybeans.vim'
 
 " Devicons
@@ -499,6 +499,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 " nerdcommenter
 Plug 'scrooloose/nerdcommenter'
 map <leader>c<space> :NERDComToggleComment<cr>
+map <leader><leader>c<space> :NERDComToggleComment<cr>
 
 " numbers.vim
 Plug 'myusuf3/numbers.vim'
@@ -674,7 +675,7 @@ call plug#end() " END Plugins
 
 " Color scheme should be defined after Plug
 "colo valloric
+"colo monokai
 colo jellybeans
 "set background=dark
 "hi Normal ctermbg=Black ctermfg=Black guifg=Black guibg=Black
-

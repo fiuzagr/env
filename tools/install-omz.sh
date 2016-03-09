@@ -45,6 +45,14 @@ main() {
   # remove tmp file
   rm -f /tmp/install-oh-my-zsh.sh
 
+
+  # remove oh-my-zsh source
+  sed -i -e "s/source \$ZSH\/oh-my-zsh.sh/#source \$ZSH\/oh-my-zsh.sh/" ~/.zshrc
+
+  # include my zsh source
+  echo 'export MY_ENV=~/.my-env' >> ~/.zshrc
+  echo 'source $MY_ENV/oh-my-zsh/.zshrc' >> ~/.zshrc
+
 }
 main
 

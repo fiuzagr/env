@@ -3,7 +3,7 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export LOCAL_BIN="$HOME/.local/bin"
 export PATH="$ANT_HOME/bin:$ANDROID_HOME:$ANDROID_HOME/tools:$LOCAL_BIN:$PATH"
 
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

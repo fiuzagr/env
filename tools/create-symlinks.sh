@@ -55,16 +55,16 @@ main() {
   }
 
   # Oh-My-Zsh CUSTOM
-  {
-    if [ -d ~/.oh-my-zsh/custom ]; then
-      printf "${YELLOW}Found ~/.oh-my-zsh/custom.${NORMAL} ${GREEN}Backing up to ~/.oh-my-zsh/custom.pre-my-env${NORMAL}\n";
-      mv ~/.oh-my-zsh/custom ~/.oh-my-zsh/custom.pre-my-env;
-    fi
-    ln -s $MY_ENV/oh-my-zsh/custom ~/.oh-my-zsh/custom
-  } || {
-    echo "Error: oh-my-zsh/custom symbolic link crash"
-    exit 1
-  }
+  #{
+    #if [ -d ~/.oh-my-zsh/custom ]; then
+      #printf "${YELLOW}Found ~/.oh-my-zsh/custom.${NORMAL} ${GREEN}Backing up to ~/.oh-my-zsh/custom.pre-my-env${NORMAL}\n";
+      #mv ~/.oh-my-zsh/custom ~/.oh-my-zsh/custom.pre-my-env;
+    #fi
+    #ln -s $MY_ENV/oh-my-zsh/custom ~/.oh-my-zsh/custom
+  #} || {
+    #echo "Error: oh-my-zsh/custom symbolic link crash"
+    #exit 1
+  #}
 
   # Git config
   {

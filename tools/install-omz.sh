@@ -33,6 +33,9 @@ main() {
   # get install.sh
   env wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh
 
+  # does not change sh
+  sed -i -e "s/chsh -s/#chsh -s/g" /tmp/install-oh-my-zsh.sh
+  
   # does not change env
   sed -i -e "s/env zsh/#env zsh/" /tmp/install-oh-my-zsh.sh
 

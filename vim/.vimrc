@@ -185,7 +185,7 @@ set shiftwidth=2
 set tabstop=2
 
 " Linebreak on 120 characters
-set lbr
+set nolbr
 set tw=120
 set wm=0
 set fo=cqt
@@ -193,7 +193,11 @@ set fo=cqt
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
-"set nolist
+
+" Show invisibles
+set list
+set list listchars=space:·,tab:>·,trail:·,eol:$
+nmap <leader>l :set list!<cr>
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -542,6 +546,9 @@ Plug 'dhruvasagar/vim-dotoo'
 " Easy Motion
 Plug 'easymotion/vim-easymotion'
 
+" Minimap
+Plug 'severin-lemaignan/vim-minimap'
+
 " Surround
 Plug 'tpope/vim-surround'
 
@@ -557,6 +564,11 @@ Plug 'ap/vim-css-color'
 " Vim Dash.app
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
+
+" Indent Guides
+Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
 
 " Syntastic
 Plug 'scrooloose/syntastic'
@@ -678,5 +690,3 @@ call plug#end() " END Plugins
 "colo valloric
 "colo monokai
 colo jellybeans
-"set background=dark
-"hi Normal ctermbg=Black ctermfg=Black guifg=Black guibg=Black

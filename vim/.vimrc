@@ -2,9 +2,6 @@
 "python powerline_setup()
 "python del powerline_setup
 
-set t_Co=256
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer:
 "       Amir Salihefendic
@@ -531,6 +528,10 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Multiple Cursor mode
 Plug 'terryma/vim-multiple-cursors'
+
+" Increment numbers
+Plug 'triglav/vim-visual-increment'
+set nrformats=alpha
 
 " Tmux Conf
 Plug 'tmux-plugins/vim-tmux'

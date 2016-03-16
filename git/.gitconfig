@@ -1,3 +1,5 @@
+[core]
+  excludesfile = ~/.my-env/git/.gitignore
 [push]
   default = simple
 [user]
@@ -11,3 +13,9 @@
   helper = cache --timeout=360000
 [core]
   editor = vim
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+[difftool]
+  prompt = false

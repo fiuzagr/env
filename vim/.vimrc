@@ -186,9 +186,9 @@ set tabstop=2
 
 " Linebreak on 120 characters
 set nolbr
-set tw=120
-set wm=0
-set fo=cqt
+"set tw=120
+"set wm=0
+"set fo=cqt
 
 set ai "Auto indent
 set si "Smart indent

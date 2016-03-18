@@ -185,7 +185,7 @@ set shiftwidth=2
 set tabstop=2
 
 " Linebreak on 120 characters
-set nolbr
+set lbr
 "set tw=120
 "set wm=0
 "set fo=cqt
@@ -198,6 +198,9 @@ set wrap "Wrap lines
 set list
 set list listchars=space:·,tab:>·,trail:·,eol:$
 nmap <leader>l :set list!<cr>
+
+" Git Commit ON 72 chars
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -527,6 +530,12 @@ Plug 'groenewege/vim-less'
 " Vim Stylus CSS
 Plug 'wavded/vim-stylus'
 
+" Vim Javascript syntax highlight
+Plug 'pangloss/vim-javascript'
+
+" Vim JSX syntax highlight
+Plug 'mxw/vim-jsx'
+
 " Vim Editor Config
 Plug 'editorconfig/editorconfig-vim'
 
@@ -580,6 +589,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_exec = 'tidy'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Git Gutter
 Plug 'airblade/vim-gitgutter'

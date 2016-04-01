@@ -158,11 +158,12 @@ set fileencoding=utf-8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" highlight column 80
-" let &colorcolumn=join(range(81,999),",")
+"highlight column 80
+"let &colorcolumn=join(range(81,999),",")
 "let &colorcolumn="80,".join(range(120,999),",")
-"let &colorcolumn="80"
-"hi ColorColumn ctermfg=235 guifg=#262626
+let &colorcolumn="80"
+" use after coloscheme
+"hi ColorColumn ctermbg=white ctermfg=black guibg=#ffffff guifg=#000000
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -701,4 +702,6 @@ call plug#end() " END Plugins
 " Color scheme should be defined after Plug
 "colo valloric
 "colo monokai
+"
 colo jellybeans
+hi ColorColumn ctermbg=white ctermfg=black guibg=#ffffff guifg=#000000

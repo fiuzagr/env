@@ -313,6 +313,9 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
+autocmd BufWrite *.jsx :call DeleteTrailingWS()
+autocmd BufWrite *.php :call DeleteTrailingWS()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -486,6 +489,7 @@ let g:tmuxline_powerline_separators = 0
 
 " CtrlP
 Plug 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = ''
 
 " nerdtree
 Plug 'scrooloose/nerdtree'
@@ -538,6 +542,9 @@ Plug 'pangloss/vim-javascript'
 
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
+
+" Vim JSON
+Plug 'elzr/vim-json'
 
 " Vim Editor Config
 Plug 'editorconfig/editorconfig-vim'
@@ -705,3 +712,4 @@ call plug#end() " END Plugins
 "
 colo jellybeans
 hi ColorColumn ctermbg=white ctermfg=black guibg=#ffffff guifg=#000000
+

@@ -1,29 +1,53 @@
-export ANT_HOME="$HOME/Programs/apache-ant-1.9.4"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export LOCAL_BIN="$HOME/.local/bin"
+# Local Binaries
+LOCAL_BIN="$HOME/.local/bin"
+if [[ -d "$LOCAL_BIN" ]]; then
+  export LOCAL_BIN
+  PATH="$LOCAL_BIN:$PATH"
+fi
 
-#export TERM="xterm-256color"
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+NVM_DIR="$HOME/.nvm"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  export NVM_DIR
+  . "$NVM_DIR/nvm.sh"
+fi
 
 
 # PHPBREW
-export PHPBREW_HOME="$HOME/.phpbrew"
-[[ -e "$PHPBREW_HOME/bashrc" ]] && source "$PHPBREW_HOME/bashrc"
+PHPBREW_HOME="$HOME/.phpbrew"
+if [[ -e "$PHPBREW_HOME/bashrc" ]]; then
+  export PHPBREW_HOME
+  source "$PHPBREW_HOME/bashrc"
+fi
 
 
 # Manja
-export MANJA_DIR="$HOME/.manja"
-[ -s "$MANJA_DIR/manja.sh" ] && . "$MANJA_DIR/manja.sh"
+MANJA_DIR="$HOME/.manja"
+if [[ -s "$MANJA_DIR/manja.sh"  ]]; then
+  export MANJA_DIR
+  . "$MANJA_DIR/manja.sh"
+fi
 
 
 # JENV
-export JENV_HOME="$HOME/.jenv"
-eval "$(jenv init -)"
+JENV_HOME="$HOME/.jenv"
+if [[ -d "$JENV_HOME" ]]; then
+  export JENV_HOME
+  PATH="$JENV_HOME/bin:$PATH"
+  eval "$(jenv init -)"
+fi
 
+
+# RBENV
+RBENV_HOME="$HOME/.rbenv"
+if [[ -d "$RBENV_HOME" ]]; then
+  export RBENV_HOME
+  PATH="$RBENV_HOME/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
 
 # PATH
-export PATH="$JENV_HOME/bin:$ANT_HOME/bin:$ANDROID_HOME:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$LOCAL_BIN:$PATH"
+export PATH
+

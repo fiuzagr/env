@@ -511,6 +511,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 Plug 'scrooloose/nerdcommenter'
 map <leader>c<space> :NERDComToggleComment<cr>
 map <leader><leader>c<space> :NERDComToggleComment<cr>
+let NERDSpaceDelims=1
 
 " numbers.vim
 Plug 'myusuf3/numbers.vim'
@@ -539,6 +540,24 @@ Plug 'wavded/vim-stylus'
 
 " Vim Javascript syntax highlight
 Plug 'pangloss/vim-javascript'
+
+" Vim JSBeautify
+Plug 'maksimr/vim-jsbeautify'
+".vimrc
+"map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" Vim TypeScript syntax
+Plug 'leafgarland/typescript-vim'
 
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
@@ -600,6 +619,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_exec = 'tidy'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_scss_checkers = ['scss_lint']
+
+" Prefer eslint local
+Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " Git Gutter
 Plug 'airblade/vim-gitgutter'

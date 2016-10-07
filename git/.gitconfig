@@ -3,12 +3,13 @@
 [push]
   default = simple
 [user]
-  name = fiuzagr
-  email = gui.fiuza@gmail.com
+  name = Guilherme Fiuza
+  email = guilherme.fuiza@foster.com.br
 [alias]
   undo = reset --soft HEAD~1
   find-deleted = rev-list -n 1 HEAD
   recovery-deleted = !sh -c 'git checkout $(git find-deleted -- "$1")^ -- "$1"' -
+  tree = log --pretty=format:'%Cgreen%h%Creset -%C(auto)%d%Creset %s %C(cyan)<author:%an | committer:%cn>%Creset' --graph --color --all --decorate
 [credential]
   helper = cache --timeout=360000
 [core]

@@ -98,5 +98,5 @@ alias tmux="tmux -2" # enable 256 colors
 
 
 # TMUX
-#if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi
-if [ "$TMUX" = "" ]; then tmux; fi
+# if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi
+# if [ "$TMUX" = "" ]; then tmux; fi

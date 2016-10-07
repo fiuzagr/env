@@ -173,6 +173,8 @@ set nobackup
 set nowb
 set noswapfile
 
+au BufRead,BufNewFile *.shtm set filetype=html
+au BufRead,BufNewFile *.shtml set filetype=html
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -199,7 +201,7 @@ set wrap "Wrap lines
 
 " Show invisibles
 set list
-set list listchars=tab:>-,trail:.,precedes:<,extends:>,eol:$
+set list listchars=tab:\|\ ,trail:.,precedes:<,extends:>,eol:$
 nmap <leader>l :set list!<cr>
 
 " Git Commit ON 72 chars
@@ -541,6 +543,9 @@ Plug 'wavded/vim-stylus'
 " Vim Javascript syntax highlight
 Plug 'pangloss/vim-javascript'
 
+" Vim Angular
+Plug 'burnettk/vim-angular'
+
 " Vim JSBeautify
 Plug 'maksimr/vim-jsbeautify'
 ".vimrc
@@ -581,6 +586,9 @@ Plug 'tmux-plugins/vim-tmux'
 " Vim todo
 Plug 'dhruvasagar/vim-dotoo'
 
+" Vim images
+Plug 'ashisha/image.vim'
+
 " Easy Motion
 Plug 'easymotion/vim-easymotion'
 
@@ -618,7 +626,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_exec = 'tidy'
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "update-']
+let g:syntastic_html_tidy_blocklevel_tags = ['update-title', 'update-meta']
+let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_scss_checkers = ['scss_lint']
 
@@ -735,5 +745,7 @@ call plug#end() " END Plugins
 "colo monokai
 "
 colo jellybeans
-hi ColorColumn ctermbg=white ctermfg=black guibg=#ffffff guifg=#000000
+hi ColorColumn ctermbg=gray ctermfg=black guibg=#ffffff guifg=#000000
+hi NonText ctermfg=8 guifg=gray
+hi SpecialKey ctermfg=8 guifg=gray
 

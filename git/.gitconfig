@@ -4,7 +4,7 @@
   default = simple
 [user]
   name = Guilherme Fiuza
-  email = guilherme.fuiza@foster.com.br
+  email = guilherme.fiuza@studo.education
 [alias]
   undo = reset --soft HEAD~1
   find-deleted = rev-list -n 1 HEAD

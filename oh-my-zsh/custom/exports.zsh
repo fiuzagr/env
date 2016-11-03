@@ -7,13 +7,14 @@ fi
 
 
 # NVM
-NVM_DIR="$HOME/.nvm"
+if hash brew 2> /dev/null; then
+  NVM_DIR="$(brew --prefix nvm)/.nvm"
+else
+  NVM_DIR="$HOME/.nvm"
+fi
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
   export NVM_DIR
   . "$NVM_DIR/nvm.sh"
-fi
-if [[ -s "$(brew --prefix nvm)/nvm.sh" ]]; then
-  . "$(brew --prefix nvm)/nvm.sh"
 fi
 
 
@@ -37,7 +38,9 @@ fi
 # JENV
 JENV_HOME="$HOME/.jenv"
 if [[ -d "$JENV_HOME" ]]; then
-  export JENV_ROOT=/usr/local/opt/jenv
+  if hash brew 2> /dev/null; then
+    export JENV_ROOT=/usr/local/opt/jenv
+  fi
   export JENV_HOME
   PATH="$JENV_HOME/bin:$PATH"
   eval "$(jenv init -)"
@@ -54,7 +57,11 @@ fi
 
 
 # Android SDK
-ANDROID_HOME="$(brew --prefix android)"
+if hash brew 2> /dev/null; then
+  ANDROID_HOME="$(brew --prefix android)"
+else 
+  ANDROID_HOME="$HOME/.android"
+fi
 if [[ -d "$ANDROID_HOME" ]]; then
   export ANDROID_HOME
 fi

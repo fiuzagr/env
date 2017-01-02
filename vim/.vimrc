@@ -1,7 +1,3 @@
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer:
 "       Amir Salihefendic
@@ -43,6 +39,8 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" My runtime
+let &runtimepath.=',' . expand($MY_ENV . '/vim/plugins/myenv')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -84,13 +82,14 @@ set so=7
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore+=**/node_modules/**,**/.git/**
 
 "Always show current position
 set ruler
 
 " Height of the command bar
 set cmdheight=2
+set shortmess=a
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -419,31 +418,13 @@ function! HasPaste()
     return ''
 endfunction
 
-
-" VIA PLUGIN
-" Don't close window, when deleting a buffer
-"command! Bclose call <SID>BufcloseCloseIt()
-"function! <SID>BufcloseCloseIt()
-   "let l:currentBufNum = bufnr("%")
-   "let l:alternateBufNum = bufnr("#")
-
-   "if buflisted(l:alternateBufNum)
-     "buffer #
-   "else
-     "bnext
-   "endif
-
-   "if bufnr("%") == l:currentBufNum
-     "new
-   "endif
-
-   "if buflisted(l:currentBufNum)
-     "execute("bdelete! ".l:currentBufNum)
-   "endif
-"endfunction
-
-command! FindTodo noautocmd vimgrep /TODO\|FIXME\|BUG/ij ** | cw
+" Grep todos
+command! FindTodo noautocmd grep /TODO\|FIXME\|BUG/ij ** | cw
 map <leader>t<space> :FindTodo<CR>
+
+" Avoid hit-enter
+command! -nargs=1 Silent execute 'silent !' . <q-args> 
+" | execute 'redraw!'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -490,8 +471,9 @@ Plug 'edkolev/tmuxline.vim'
 let g:tmuxline_powerline_separators = 0
 
 " CtrlP
-Plug 'kien/ctrlp.vim'
-let g:ctrlp_working_path_mode = ''
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
 " nerdtree
 Plug 'scrooloose/nerdtree'
@@ -513,7 +495,8 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 Plug 'scrooloose/nerdcommenter'
 map <leader>c<space> :NERDComToggleComment<cr>
 map <leader><leader>c<space> :NERDComToggleComment<cr>
-let NERDSpaceDelims=1
+let g:NERDSpaceDelims=1
+let g:NERDCustomDelimiters = { 'ejs': { 'left': '<%/*','right': '*/%>' } }
 
 " numbers.vim
 Plug 'myusuf3/numbers.vim'
@@ -561,6 +544,7 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 " for html
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
@@ -578,6 +562,20 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Multiple Cursor mode
 Plug 'terryma/vim-multiple-cursors'
+" Prevent conflict with neocomplete
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
 
 " Increment numbers
 Plug 'triglav/vim-visual-increment'
@@ -601,9 +599,6 @@ Plug 'severin-lemaignan/vim-minimap'
 " Surround
 Plug 'tpope/vim-surround'
 
-" Vim Bclose
-"Plug 'rbgrouleff/bclose.vim'
-
 " Vim buffer bye
 Plug 'moll/vim-bbye'
 
@@ -619,137 +614,22 @@ Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 "let g:indent_guides_guide_size = 1
 
-" Syntastic
-Plug 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_exec = 'tidy'
-" let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "update-']
-let g:syntastic_html_tidy_blocklevel_tags = ['update-title', 'update-meta']
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-" let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_scss_checkers = ['scss_lint']
-
-" Prefer eslint local
-Plug 'mtscout6/syntastic-local-eslint.vim'
-
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
-" Vim Multiple Cursors
-Plug 'terryma/vim-multiple-cursors'
-" Prevent conflict with neocomplete
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
-
-" YouCompleteMe
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
-
-" phpcomplete
-"Plug 'shawncplus/phpcomplete.vim'
-
-" Neocomplete
-Plug 'Shougo/neocomplete.vim'
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-Space> neocomplete#start_manual_complete('omni')
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" Load env plugins
+call myenv#load#plug()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end() " END Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Color scheme should be defined after Plug
-"colo valloric
-"colo monokai
-"
+" Work only after call plug#end
 colo jellybeans
 hi ColorColumn ctermbg=gray ctermfg=black guibg=#ffffff guifg=#000000
 hi NonText ctermfg=8 guifg=gray
 hi SpecialKey ctermfg=8 guifg=gray
+
+" Load env rc
+call myenv#load#env()
 

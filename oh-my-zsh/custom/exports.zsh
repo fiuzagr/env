@@ -56,6 +56,14 @@ if [[ -d "$RBENV_HOME" ]]; then
 fi
 
 
+# Android Tools
+ANDROID_TOOLS="$HOME/Programs/Android/tools"
+if [[ -d "$ANDROID_TOOLS" ]]; then
+  export ANDROID_TOOLS
+  PATH="$ANDROID_TOOLS/bin:$PATH"
+fi
+
+
 # Android SDK
 if hash brew 2> /dev/null; then
   ANDROID_HOME="$(brew --prefix android)"

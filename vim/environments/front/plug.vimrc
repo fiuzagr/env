@@ -20,6 +20,7 @@ let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 " let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_quiet_messages = { 'regex': '--no-ignore' }
 
 " Prefer eslint local
 Plug 'mtscout6/syntastic-local-eslint.vim'

@@ -96,6 +96,9 @@ alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias tmux="tmux -2" # enable 256 colors
 
+hrm () {
+  LC_ALL=C sed -i "/$1/d" $HISTFILE
+}
 
 # TMUX
 # if [ "$TMUX" = "" ]; then tmux new-session -A -s main; fi

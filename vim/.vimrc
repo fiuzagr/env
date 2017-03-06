@@ -434,6 +434,9 @@ call plug#begin()
 " Sensible
 Plug 'tpope/vim-sensible'
 
+" RSI
+Plug 'tpope/vim-rsi'
+
 " Vim colors
 Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/vim-valloric-colorscheme'

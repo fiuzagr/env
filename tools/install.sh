@@ -69,7 +69,7 @@ main() {
   # Install all plugins in vim
   env vim +PlugInstall +qall
 
-  # Install tmp tmux plugin
+  # Install tpm tmux plugin
   env git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins || {
     printf "${RED}Error: TPM install failed${NORMAL}\n\n"
     exit 1

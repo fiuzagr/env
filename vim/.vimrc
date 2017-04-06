@@ -439,8 +439,9 @@ Plug 'tpope/vim-rsi'
 
 " Vim colors
 Plug 'flazz/vim-colorschemes'
-Plug 'Valloric/vim-valloric-colorscheme'
+" Plug 'Valloric/vim-valloric-colorscheme'
 Plug 'nanotech/jellybeans.vim'
+Plug 'monkoose/boa.vim'
 
 " Devicons
 Plug 'ryanoasis/vim-devicons'

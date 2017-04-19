@@ -17,13 +17,13 @@ let g:syntastic_html_tidy_exec = 'tidy'
 " let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "update-']
 let g:syntastic_html_tidy_blocklevel_tags = ['update-title', 'update-meta']
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-" let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_quiet_messages = { 'regex': '--no-ignore' }
 
 " Prefer eslint local
-Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'fiuzagr/syntastic-local-eslint.vim'
 
 " YouCompleteMe
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }

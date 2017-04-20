@@ -15,5 +15,5 @@ let g:EclimDisabled = 1
   " execute "vnoremap <leader>f :!" . b:syntastic_javascript_eslint_exec . "  --stdin --fix-to-stdout<CR>gv"
 " endif
 
-autocmd FileType javascript set formatprg=prettier-standard\ --stdin\ --parser\ flow\ --single-quote
+autocmd FileType javascript set formatprg=prettier-standard
 autocmd BufWritePre *.js :normal gggqG

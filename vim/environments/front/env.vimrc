@@ -16,4 +16,4 @@ let g:EclimDisabled = 1
 " endif
 
 autocmd FileType javascript set formatprg=prettier-standard
-autocmd BufWritePre *.js :normal gggqG
+" autocmd BufWritePre *.js :normal gggqG

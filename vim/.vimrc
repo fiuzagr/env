@@ -621,6 +621,11 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
+" Neoformat
+Plug 'sbdchd/neoformat'
+let g:neoformat_try_formatprg = 1
+autocmd BufWritePre *.js Neoformat
+
 " Load env plugins
 call myenv#load#plug()
 

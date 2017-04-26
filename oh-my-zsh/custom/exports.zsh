@@ -1,3 +1,6 @@
+# History control
+export HISTCONTROL=ignorespace
+
 # Local Binaries
 LOCAL_BIN="$HOME/.local/bin"
 if [[ -d "$LOCAL_BIN" ]]; then
@@ -39,7 +42,7 @@ fi
 JENV_HOME="$HOME/.jenv"
 if [[ -d "$JENV_HOME" ]]; then
   if hash brew 2> /dev/null; then
-    export JENV_ROOT=/usr/local/opt/jenv
+    export JENV_ROOT="/usr/local/opt/jenv"
   fi
   export JENV_HOME
   PATH="$JENV_HOME/bin:$PATH"
@@ -56,22 +59,40 @@ if [[ -d "$RBENV_HOME" ]]; then
 fi
 
 
-# Android Tools
-ANDROID_TOOLS="$HOME/Programs/Android/tools"
-if [[ -d "$ANDROID_TOOLS" ]]; then
-  export ANDROID_TOOLS
-  PATH="$ANDROID_TOOLS/bin:$PATH"
-fi
-
-
 # Android SDK
 if hash brew 2> /dev/null; then
   ANDROID_HOME="$(brew --prefix android)"
 else 
-  ANDROID_HOME="$HOME/.android"
+  ANDROID_HOME="$HOME/Programs/android/sdks"
 fi
 if [[ -d "$ANDROID_HOME" ]]; then
   export ANDROID_HOME
+fi
+
+
+# Android Tools
+ANDROID_TOOLS="$ANDROID_HOME/tools"
+if [[ -d "$ANDROID_TOOLS" ]]; then
+  export ANDROID_TOOLS
+  PATH="$ANDROID_TOOLS:$PATH"
+fi
+# Android Platform Tools
+ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
+if [[ -d "$ANDROID_PLATFORM_TOOLS" ]]; then
+  export ANDROID_PLATFORM_TOOLS
+  PATH="$ANDROID_PLATFORM_TOOLS:$PATH"
+fi
+
+
+# Eclipse Home
+if hash brew 2> /dev/null; then
+  ECLIPSE_HOME="$(brew --prefix eclipse)"
+else 
+  ECLIPSE_HOME="$HOME/Programs/eclipse"
+fi
+if [[ -d "$ECLIPSE_HOME" ]]; then
+  export ECLIPSE_HOME
+  PATH="$ECLIPSE_HOME:$PATH"
 fi
 
 

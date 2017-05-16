@@ -95,7 +95,7 @@ set shortmess=a
 set hid
 
 " Configure backspace so it acts as it should act
-set backspace=eol,start,indent
+set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
 " Ignore case when searching
@@ -623,8 +623,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Neoformat
 Plug 'sbdchd/neoformat'
-let g:neoformat_try_formatprg = 1
-autocmd BufWritePre *.js Neoformat
 
 " Load env plugins
 call myenv#load#plug()

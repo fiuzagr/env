@@ -558,6 +558,9 @@ Plug 'leafgarland/typescript-vim'
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
 
+" Vim GraphQL
+Plug 'jparise/vim-graphql'
+
 " Vim JSON
 Plug 'elzr/vim-json'
 

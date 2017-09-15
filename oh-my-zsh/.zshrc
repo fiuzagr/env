@@ -51,7 +51,7 @@ ZSH_CUSTOM=$MY_ENV/oh-my-zsh/custom/
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode osx brew brew-cask)
+plugins=(git vi-mode osx brew brew-cask docker docker-compose)
 
 # Load all of the plugins that were defined in ~/.zshrc
 #for plugin ($plugins); do

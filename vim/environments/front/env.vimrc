@@ -15,3 +15,4 @@ autocmd BufWritePre *.jsx Neoformat
 
 " Formatters
 autocmd FileType javascript set formatprg=prettier-standard
+autocmd FileType javascript.jsx set formatprg=prettier-standard

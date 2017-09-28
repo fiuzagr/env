@@ -238,6 +238,7 @@ map <C-l> <C-W>l
 " Useful mappings for managing  buffer
 map <leader>bd :Bdelete<cr>
 map <leader>ba :bufdo Bdelete!<cr>
+map <leader>bw :bufdo w<cr>
 map <leader>bn :bn<cr>
 map <leader>bp :bp<cr>
 
@@ -530,6 +531,13 @@ Plug 'wavded/vim-stylus'
 " Vim Javascript syntax highlight
 Plug 'pangloss/vim-javascript'
 
+" Vim GraphQL
+Plug 'jparise/vim-graphql'
+
+" Vim Flow JS
+Plug 'flowtype/vim-flow'
+let g:flow#enable = 0
+
 " Vim EJS
 Plug 'nikvdp/ejs-syntax'
 
@@ -557,9 +565,6 @@ Plug 'leafgarland/typescript-vim'
 
 " Vim JSX syntax highlight
 Plug 'mxw/vim-jsx'
-
-" Vim GraphQL
-Plug 'jparise/vim-graphql'
 
 " Vim JSON
 Plug 'elzr/vim-json'

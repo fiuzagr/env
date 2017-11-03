@@ -1,0 +1,15 @@
+#############
+# ignore all
+*
+.*
+
+##############
+# directories
+!my-emacs
+!my-emacs/**/*
+!my-emacs/**/.*
+
+########
+# files
+!init.el
+!.gitignore

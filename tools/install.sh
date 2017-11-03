@@ -61,6 +61,12 @@ main() {
   env sh $MY_ENV/tools/create-symlinks.sh
 
 
+  # Install spacemacs
+  env git clone --depth=1 https://github.com/syl20bnr/spacemacs $MY_ENV/emacs.d/spacemacs || {
+    printf "${RED}Error: Spacemacs install failed${NORMAL}\n\n"
+    exit 1
+  }
+
   # Install Plug.vim
   env curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim || {
     printf "${RED}Error: Plug.vim install failed${NORMAL}\n\n"
@@ -74,6 +80,10 @@ main() {
     printf "${RED}Error: TPM install failed${NORMAL}\n\n"
     exit 1
   }
+
+
+  # Install fonts
+  env sh $MY_ENV/fonts/install.sh
 
 
   printf "${GREEN}"

@@ -29,55 +29,72 @@ main() {
     MY_ENV=~/.my-env
   fi
 
-  # VIMRC
   printf "${BLUE}Creating symbolic links...${NORMAL}\n"
+
+  # EMACS.D
   {
+    # backup
+    if [ -d ~/.emacs.d ]; then
+      printf "${YELLOW}Found ~/.emacs.d.${NORMAL} ${GREEN}Backing up to ~/.emacs.d.pre-my-env${NORMAL}\n";
+      mv ~/.emacs.d ~/.emacs.d.pre-my-env;
+    fi
+    if [ -f ~/.emacs ] || [ -h ~/.emacs ]; then
+      printf "${YELLOW}Found ~/.emacs.${NORMAL} ${GREEN}Backing up to ~/.emacs.pre-my-env${NORMAL}\n";
+      mv ~/.emacs ~/.emacs.pre-my-env;
+    fi
+    if [ -f ~/.spacemacs ] || [ -h ~/.spacemacs ]; then
+      printf "${YELLOW}Found ~/.spacemacs.${NORMAL} ${GREEN}Backing up to ~/.spacemacs.pre-my-env${NORMAL}\n";
+      mv ~/.spacemacs ~/.spacemacs.pre-my-env;
+    fi
+    # create link
+    ln -s $MY_ENV/emacs.d ~/.emacs.d
+    ln -s $MY_ENV/spacemacs ~/.spacemacs
+  } || {
+    echo "Error: emacs.d symbolic link crash"
+    # exit 1
+  }
+
+  # VIMRC
+  {
+    # backup
     if [ -f ~/.vimrc ] || [ -h ~/.vimrc ]; then
       printf "${YELLOW}Found ~/.vimrc.${NORMAL} ${GREEN}Backing up to ~/.vimrc.pre-my-env${NORMAL}\n";
       mv ~/.vimrc ~/.vimrc.pre-my-env;
     fi
+    # create link
     ln -s $MY_ENV/vim/.vimrc ~/.vimrc
   } || {
     echo "Error: vimrc symbolic link crash"
-    exit 1
+    # exit 1
   }
 
   # TMUX.CONF
   {
+    # backup
     if [ -f ~/.tmux.conf ] || [ -h ~/.tmux.conf ]; then
       printf "${YELLOW}Found ~/.tmux.conf.${NORMAL} ${GREEN}Backing up to ~/.tmux.conf.pre-my-env${NORMAL}\n";
       mv ~/.tmux.conf ~/.tmux.conf.pre-my-env;
     fi
+    # create link
     ln -s $MY_ENV/tmux/.tmux.conf ~/.tmux.conf
   } || {
     echo "Error: tmux.conf symbolic link crash"
-    exit 1
+    # exit 1
   }
-
-  # Oh-My-Zsh CUSTOM
-  #{
-    #if [ -d ~/.oh-my-zsh/custom ]; then
-      #printf "${YELLOW}Found ~/.oh-my-zsh/custom.${NORMAL} ${GREEN}Backing up to ~/.oh-my-zsh/custom.pre-my-env${NORMAL}\n";
-      #mv ~/.oh-my-zsh/custom ~/.oh-my-zsh/custom.pre-my-env;
-    #fi
-    #ln -s $MY_ENV/oh-my-zsh/custom ~/.oh-my-zsh/custom
-  #} || {
-    #echo "Error: oh-my-zsh/custom symbolic link crash"
-    #exit 1
-  #}
 
   # Git config
   {
+    # backup
     if [ -f ~/.gitconfig ] || [ -h ~/.gitconfig ]; then
       printf "${YELLOW}Found ~/.gitconfig.${NORMAL} ${GREEN}Backing up to ~/.gitconfig.pre-my-env${NORMAL}\n";
       mv ~/.gitconfig ~/.gitconfig.pre-my-env;
     fi
+    # create link
     ln -s $MY_ENV/git/.gitconfig ~/.gitconfig
   } || {
     echo "Error: gitconfig symbolic link crash"
-    exit 1
+    # exit 1
   }
-
 }
 main
 

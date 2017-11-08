@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (concat user-emacs-directory "my-emacs/elisp"))
+(add-to-list 'load-path (concat user-emacs-directory "emacs-bootstrap/elisp"))
 
 (require 'base)
 (require 'base-theme)

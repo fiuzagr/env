@@ -5,9 +5,13 @@
 
 ##############
 # directories
-!my-emacs
-!my-emacs/**/*
-!my-emacs/**/.*
+!fiuzagr
+!fiuzagr/**/*
+!fiuzagr/**/.*
+
+!emacs-bootstrap
+!emacs-bootstrap/**/*
+!emacs-bootstrap/**/.*
 
 ########
 # files

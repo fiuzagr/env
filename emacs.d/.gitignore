@@ -3,8 +3,8 @@
 *
 .*
 
-##############
-# directories
+#####################
+# include directories
 !fiuzagr
 !fiuzagr/**/*
 !fiuzagr/**/.*
@@ -13,7 +13,14 @@
 !emacs-bootstrap/**/*
 !emacs-bootstrap/**/.*
 
-########
-# files
+###############
+# include files
 !init.el
 !.gitignore
+
+
+
+################
+# KEEP ON BOTTON
+# Force ignore
+custom.el

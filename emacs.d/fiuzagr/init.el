@@ -1,16 +1,15 @@
-; User
+;; User
 (setq user-full-name "Fiuza")
 (setq user-mail-address "fiuzagr@gmail.com")
 
-; Custom file
+;; Custom file
 (setq custom-file (concat fiuzagr-start-directory "custom.el"))
 (load custom-file t)
 
-; Packages
+;; Packages
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
                          ("gnu"       . "http://elpa.gnu.org/packages/")
-                         ("melpa"     . "http://melpa.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+                         ("melpa"     . "http://melpa.org/packages/")))
 
 (package-initialize)
 (package-refresh-contents)
@@ -21,7 +20,7 @@
 
 (require 'use-package)
 
-; UTF-8
+;; UTF-8
 (set-charset-priority 'unicode)
 (setq locale-coding-system   'utf-8)   ; pretty
 (set-terminal-coding-system  'utf-8)   ; pretty
@@ -30,7 +29,7 @@
 (prefer-coding-system        'utf-8)   ; with sugar on top
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
-; Start up
+;; Start up
 ; splash screen
 (setq inhibit-splash-screen t
       initial-scratch-message nil
@@ -64,6 +63,18 @@
       visible-bell t)
 (show-paren-mode t)
 
-; Extensions
+;; Themes
+; font
+(add-to-list 'default-frame-alist '(font . "Source Code Pro for Powerline Light" ))
+(set-face-attribute 'default t :font "Source Code Pro for Powerline Light" )
+
+;; Extensions
 ; org-mode
 (use-package org)
+
+; mode-line
+(use-package smart-mode-line
+  :ensure t
+  :config
+  (progn
+    (sml/setup)))

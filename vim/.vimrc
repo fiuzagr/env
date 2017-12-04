@@ -545,20 +545,20 @@ Plug 'nikvdp/ejs-syntax'
 Plug 'burnettk/vim-angular'
 
 " Vim JSBeautify
-Plug 'maksimr/vim-jsbeautify'
+" Plug 'maksimr/vim-jsbeautify'
 ".vimrc
 "map <c-f> :call JsBeautify()<cr>
 " or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 " for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 " for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" autocmd FileType ejs noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " Vim TypeScript syntax
 Plug 'leafgarland/typescript-vim'
@@ -631,6 +631,12 @@ Plug 'airblade/vim-gitgutter'
 
 " Neoformat
 Plug 'sbdchd/neoformat'
+
+" Asynchronous Lint Engine
+Plug 'w0rp/ale'
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+" let g:ale_linters = {'javascript': ['']}
+let g:ale_fix_on_save = 1
 
 " Load env plugins
 call myenv#load#plug()

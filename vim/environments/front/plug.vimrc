@@ -5,26 +5,26 @@
 """"""""""""""""""""""""""""""""""""
 
 " Syntastic
-Plug 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_exec = 'tidy'
-let g:syntastic_html_tidy_ignore_errors = ['is not recognized!', 'discarding unexpected', "plain text isn't allowed in <head>"]
-let g:syntastic_html_tidy_blocklevel_tags = ['update-title', 'update-meta']
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_typescript_checkers = ['tslint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_stylus_checkers = ['stylint']
-let g:syntastic_quiet_messages = { 'regex': '--no-ignore' }
+" Plug 'scrooloose/syntastic'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_html_tidy_exec = 'tidy'
+" let g:syntastic_html_tidy_ignore_errors = ['is not recognized!', 'discarding unexpected', "plain text isn't allowed in <head>"]
+" let g:syntastic_html_tidy_blocklevel_tags = ['update-title', 'update-meta']
+" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" let g:syntastic_typescript_checkers = ['tslint']
+" let g:syntastic_scss_checkers = ['scss_lint']
+" let g:syntastic_stylus_checkers = ['stylint']
+" let g:syntastic_quiet_messages = { 'regex': '--no-ignore' }
 
 " Prefer eslint local
-Plug 'fiuzagr/syntastic-local-eslint.vim'
+" Plug 'fiuzagr/syntastic-local-eslint.vim'
 
 " YouCompleteMe
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }

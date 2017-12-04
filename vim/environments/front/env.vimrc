@@ -9,10 +9,10 @@ autocmd VimEnter * echohl Error | echom 'Front-end Environment Loaded' | echohl 
 let g:EclimDisabled = 1
 
 " Neoformat
-let g:neoformat_try_formatprg = 1
-autocmd BufWritePre *.js Neoformat
-autocmd BufWritePre *.jsx Neoformat
+" let g:neoformat_try_formatprg = 1
+" autocmd BufWritePre *.js Neoformat
+" autocmd BufWritePre *.jsx Neoformat
 
 " Formatters
-autocmd FileType javascript set formatprg=prettier-standard
-autocmd FileType javascript.jsx set formatprg=prettier-standard
+" autocmd FileType javascript set formatprg=prettier-standard
+" autocmd FileType javascript.jsx set formatprg=prettier-standard

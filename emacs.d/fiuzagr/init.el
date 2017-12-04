@@ -12,7 +12,7 @@
                          ("melpa"     . "http://melpa.org/packages/")))
 
 (package-initialize)
-(package-refresh-contents)
+; (package-refresh-contents) use M-x instead
 
 (unless (package-installed-p 'use-package)
     (package-refresh-contents)
@@ -69,8 +69,20 @@
 (set-face-attribute 'default t :font "Source Code Pro for Powerline Light" )
 
 ;; Extensions
-; org-mode
-(use-package org)
+; org mode
+; TODO separate to config.el file
+(setq fgr-org-directory (concat user-emacs-directory "org/"))
+(setq fgr-org-default-notes-file (concat fgr-org-directory "organizer.org"))
+(use-package org
+  :ensure t
+  :bind (("C-c c" . org-capture)
+	 ("C-c a" . org-agenda)
+	 ("C-c l" . org-store-link))
+  :init
+  (setq org-directory fgr-org-directory)
+  (setq org-default-notes-file fgr-org-default-notes-file)
+  (setq org-agenda-files (list fgr-org-default-notes-file))
+  )
 
 ; mode-line
 (use-package smart-mode-line
@@ -78,3 +90,10 @@
   :config
   (progn
     (sml/setup)))
+
+; helm
+(use-package helm
+  :ensure t
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("C-x b" . helm-buffers-list)))

@@ -1,3 +1,5 @@
+[init]
+  templatedir = ~/.my-env/git/git_template
 [core]
   excludesfile = ~/.my-env/git/.gitignore
 [push]
@@ -21,7 +23,7 @@
 [difftool]
   prompt = false
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

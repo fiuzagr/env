@@ -96,6 +96,14 @@ if [[ -d "$ECLIPSE_HOME" ]]; then
 fi
 
 
+# Denver
+DENVER_HOME="$HOME/denver"
+if [[ -s "$DENVER_HOME/.denver/rc" ]]; then
+  export DENVER_HOME
+  . "$DENVER_HOME/.denver/rc"
+fi
+
+
 # PATH
 export PATH
 

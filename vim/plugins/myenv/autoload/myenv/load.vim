@@ -4,7 +4,7 @@
 function! s:getenvfile (filetype) 
   let l:currentDirectory = fnameescape(getcwd())
   let l:vimEnvFilename = '.vim_environment'
-  let l:environmentsPath = $MY_ENV . '/vim/environments/'
+  let l:environmentsPath = g:vimCustomPath . '/environments/'
   let l:envRc = l:environmentsPath . 'front/' . a:filetype . '.vimrc' " default
 
   let found = fnameescape(findfile(l:vimEnvFilename, l:currentDirectory . ';' . $HOME))

@@ -40,7 +40,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " My runtime
-let &runtimepath.=',' . expand($MY_ENV . '/vim/plugins/myenv')
+if !exists('g:vimCustomPath')
+  let g:vimCustomPath = $MY_ENV . '/vim'
+endif
+let &runtimepath .= ',' . g:vimCustomPath . '/plugins/myenv'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General

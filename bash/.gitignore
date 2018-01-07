@@ -1,0 +1,12 @@
+# ignore all
+*
+.*
+
+# files
+!.bashrc
+!.gitignore
+
+# directories
+# !<dirname>
+# !<dirname>/**/*
+# !<dirname>/**/.*

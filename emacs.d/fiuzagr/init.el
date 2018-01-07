@@ -76,8 +76,8 @@
 (use-package org
   :ensure t
   :bind (("C-c c" . org-capture)
-	 ("C-c a" . org-agenda)
-	 ("C-c l" . org-store-link))
+    ("C-c a" . org-agenda)
+    ("C-c l" . org-store-link))
   :init
   (setq org-directory fgr-org-directory)
   (setq org-default-notes-file fgr-org-default-notes-file)
@@ -95,5 +95,5 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files)
-	 ("C-x b" . helm-buffers-list)))
+    ("C-x C-f" . helm-find-files)
+    ("C-x b" . helm-buffers-list)))

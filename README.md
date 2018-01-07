@@ -1,11 +1,11 @@
-# env
+# Env
+
+## Install
 
 ```shell
-$ sh -c "$(wget https://raw.github.com/fiuzagr/env/master/tools/install.sh -O -)"
-```
-
-Install vim with lua and cscope
-
-```shell
-$ brew install vim --with-cscope --with-lua
+env \
+  ENV_HOME="$HOME/.env" \
+  ENV_BRANCH=v2 \
+  wget -qO- \
+    https://raw.githubusercontent.com/fiuzagr/env/master/install.sh | sh
 ```

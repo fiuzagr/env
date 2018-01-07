@@ -1,6 +1,0 @@
-# flush all rules on the file
-sudo pfctl -F all -f /etc/pf-httpdfwd.conf
-
-# test file
-sudo pfctl -vnf /etc/pf-httpdfwd.conf
-

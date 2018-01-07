@@ -1,1 +1,16 @@
-plugged
+# ignore all
+*
+.*
+
+# files
+!.vimrc
+!.gitignore
+
+# directories
+!environments
+!environments/**/*
+!environments/**/.*
+
+!plugins
+!plugins/**/*
+!plugins/**/.*

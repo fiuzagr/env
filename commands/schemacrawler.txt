@@ -1,1 +1,0 @@
-sh schemacrawler.sh -server=sqlite -database=/Users/nuts/Public/NUTS/Laravel/cockpit/database/db.sqlite -c=graph -infolevel=standard -outputformat=pdf -outputfile=/Users/nuts/Desktop/cockpit_db.pdf

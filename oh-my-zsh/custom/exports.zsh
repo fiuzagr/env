@@ -97,7 +97,7 @@ fi
 
 
 # Denver
-DENVER_HOME="$HOME/denver"
+DENVER_HOME="$HOME/workspace/denverio/denver"
 if [[ -s "$DENVER_HOME/.denver/rc" ]]; then
   export DENVER_HOME
   . "$DENVER_HOME/.denver/rc"

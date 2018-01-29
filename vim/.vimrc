@@ -485,7 +485,7 @@ let g:tmuxline_powerline_separators = 0
 
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
 
 " nerdtree

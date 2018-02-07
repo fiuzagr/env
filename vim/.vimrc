@@ -640,7 +640,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sbdchd/neoformat'
 
 " Asynchronous Lint Engine
-Plug 'w0rp/ale'
+Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {'javascript': ['sonarjs', 'eslint']}
 let g:ale_fix_on_save = 1

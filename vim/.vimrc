@@ -60,8 +60,7 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let g:mapleader = ','
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -79,7 +78,7 @@ nmap <leader>sv :so ~/.vimrc<cr>
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set scrolloff=7
 
 " Turn on the WiLd menu
 set wildmenu
@@ -95,7 +94,7 @@ set cmdheight=2
 set shortmess=a
 
 " A buffer becomes hidden when it is abandoned
-set hid
+set hidden
 
 " Configure backspace so it acts as it should act
 set backspace=indent,eol,start
@@ -122,13 +121,13 @@ set magic
 " Show matching brackets when text indicator is over them
 set showmatch
 " How many tenths of a second to blink when matching brackets
-set mat=2
+set matchtime=2
 
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
-set tm=500
+set timeoutlen=500
 
 " Line numbers
 set relativenumber 
@@ -145,7 +144,7 @@ set background=dark
 
 
 " Set extra options when running in GUI mode
-if has("gui_running")
+if has('gui_running')
     set guioptions-=T
     set guioptions+=e
     set t_Co=256
@@ -153,17 +152,17 @@ if has("gui_running")
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-scriptencoding utf-8
 set encoding=utf-8
+scriptencoding utf-8
 set fileencoding=utf-8
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac
+set fileformats=unix,dos,mac
 
 "highlight column 80
 "let &colorcolumn=join(range(81,999),",")
 "let &colorcolumn="80,".join(range(120,999),",")
-let &colorcolumn="80"
+let &colorcolumn='80'
 " use after coloscheme
 "hi ColorColumn ctermbg=white ctermfg=black guibg=#ffffff guifg=#000000
 
@@ -172,7 +171,7 @@ let &colorcolumn="80"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
-set nowb
+set nowritebackup
 set noswapfile
 
 au BufRead,BufNewFile *.shtm set filetype=html
@@ -192,13 +191,13 @@ set shiftwidth=2
 set tabstop=2
 
 " Linebreak on 120 characters
-set lbr
+set linebreak
 "set tw=120
 "set wm=0
 "set fo=cqt
 
-set ai "Auto indent
-set si "Smart indent
+set autoindent "Auto indent
+set smartindent "Smart indent
 set wrap "Wrap lines
 
 " Show invisibles
@@ -261,7 +260,7 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 " Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
-  set stal=2
+  set showtabline=2
 catch
 endtry
 
@@ -308,7 +307,7 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-if has("mac") || has("macunix")
+if has('mac') || has('macunix')
   nmap <D-j> <M-j>
   nmap <D-k> <M-k>
   vmap <D-j> <M-j>
@@ -317,9 +316,9 @@ endif
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-  exe "normal mz"
+  exe 'normal mz'
   %s/\s\+$//ge
-  exe "normal `z"
+  exe 'normal `z'
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
@@ -392,26 +391,26 @@ set pastetoggle=<F2>
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
+    exe 'menu Foo.Bar :' . a:str
     emenu Foo.Bar
     unmenu Foo
 endfunction
 
 function! VisualSelection(direction) range
     let l:saved_reg = @"
-    execute "normal! vgvy"
+    execute 'normal! vgvy'
 
     let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+    let l:pattern = substitute(l:pattern, "\n$", '', '')
 
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
+    if a:direction ==? 'b'
+        execute 'normal ?' . l:pattern . '^M'
+    elseif a:direction ==? 'gv'
+        call CmdLine('vimgrep ' . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction ==? 'replace'
+        call CmdLine('%s' . '/'. l:pattern . '/')
+    elseif a:direction ==? 'f'
+        execute 'normal /' . l:pattern . '^M'
     endif
 
     let @/ = l:pattern
@@ -495,13 +494,13 @@ Plug 'jistr/vim-nerdtree-tabs'
 map <C-e> :NERDTreeTabsToggle<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '^\.sonarlint$']
+let g:NERDTreeChDirMode=0
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeMouseMode=2
+let g:NERDTreeShowHidden=1
+let g:NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " nerdcommenter

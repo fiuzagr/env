@@ -1,17 +1,15 @@
 [init]
-  templatedir = ~/.my-env/git/git_template
+  templatedir = ./git_template
 [core]
-  excludesfile = ~/.my-env/git/.gitignore
+  excludesfile = ./.gitignore
 [push]
   default = simple
-[user]
-  name = Guilherme Fiuza
-  email = gui.fiuza@gmail.com
 [alias]
   undo = reset --soft HEAD~1
   find-deleted = rev-list -n 1 HEAD
   recovery-deleted = !sh -c 'git checkout $(git find-deleted -- "$1")^ -- "$1"' -
   tree = log --pretty=format:'%Cgreen%h%Creset -%C(auto)%d%Creset %s %C(cyan)<author:%an | committer:%cn>%Creset' --graph --color --all --decorate
+  remove-merged = "!sh -c 'IFS=\"|\"; git branch --merged | grep -vE \"\\*|master\" | grep -vE \"${*:-#}\" | xargs -n 1 git branch -d' -"
 [credential]
   helper = cache --timeout=360000
 [core]

@@ -57,6 +57,12 @@ env_install_clone() {
   echo
 }
 
+env_install_gitconfig() {
+  env_install_section "Configuring Git..."
+  
+  git config --global include.path "$ENV_HOME/git/.gitconfig"
+}
+
 env_install_symlinks() {
   env_install_section "Creating symlinks..."
 
@@ -88,6 +94,8 @@ env_install() {
   env_install_clone
 
   # env_install_symlinks
+  
+  env_install_gitconfig
 
   env_install_fonts
 

@@ -1,0 +1,9 @@
+# ignore all
+*
+.*
+
+# files
+!.gitignore
+!.tmux.conf
+!.tmux.dev
+!.tmuxline.conf

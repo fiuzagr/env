@@ -52,15 +52,16 @@ env_install_clone() {
       exit 1
     }
 
-  cd $ENV_HOME
-  echo "Cloned to $(pwd)."
+  echo "Cloned to $ENV_HOME."
   echo
 }
 
 env_install_gitconfig() {
   env_install_section "Configuring Git..."
-  
-  git config --global include.path "$ENV_HOME/git/.gitconfig"
+
+  local path="$ENV_HOME/git/.gitconfig"
+
+  git config --global include.path $path
 }
 
 env_install_symlinks() {

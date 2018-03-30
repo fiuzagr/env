@@ -1,7 +1,7 @@
 [init]
-  templatedir = ./git_template
+  templatedir = git_template
 [core]
-  excludesfile = ./.gitignore
+  excludesfile = .gitignore
 [push]
   default = simple
 [alias]

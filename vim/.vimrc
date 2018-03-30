@@ -625,6 +625,9 @@ Plug 'moll/vim-bbye'
 " Vim CSS Color
 Plug 'ap/vim-css-color'
 
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
 " Vim Dash.app
 Plug 'rizzatti/dash.vim'
 nmap <silent> <leader>d <Plug>DashSearch
@@ -639,6 +642,12 @@ Plug 'airblade/vim-gitgutter'
 
 " Neoformat
 Plug 'sbdchd/neoformat'
+
+" Deoplete (Asynchronous complete)
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+let g:deoplete#enable_at_startup = 1
 
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'

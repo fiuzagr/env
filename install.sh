@@ -61,7 +61,9 @@ env_install_gitconfig() {
 
   local path="$ENV_HOME/git/.gitconfig"
 
-  git config --global include.path $path
+  git config --global init.templatedir "$path/git_template"
+  git config --global core.excludesfile "$path/.gitignore"
+  git config --global include.path "$path/.gitconfig"
 }
 
 env_install_symlinks() {

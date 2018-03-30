@@ -1,7 +1,6 @@
-[init]
-  templatedir = git_template
 [core]
-  excludesfile = .gitignore
+  editor = vim
+  pager = cat
 [push]
   default = simple
 [alias]
@@ -12,8 +11,6 @@
   remove-merged = "!sh -c 'IFS=\"|\"; git branch --merged | grep -vE \"\\*|master\" | grep -vE \"${*:-#}\" | xargs -n 1 git branch -d' -"
 [credential]
   helper = cache --timeout=360000
-[core]
-  editor = vim
 [diff]
   tool = vimdiff
 [merge]

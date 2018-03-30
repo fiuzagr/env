@@ -1,0 +1,12 @@
+# ignore all
+*
+.*
+
+# files
+!.gitignore
+!.zshrc
+
+# directories
+!custom
+!custom/**/*
+!custom/**/.*

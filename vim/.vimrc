@@ -385,6 +385,9 @@ map <leader>q :e ~/buffer<cr>
 map <leader>pp :setlocal paste!<cr>
 set pastetoggle=<F2>
 
+" Format json command
+command! FormatJSON %!python -m json.tool
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -639,11 +642,17 @@ Plug 'airblade/vim-gitgutter'
 " Neoformat
 Plug 'sbdchd/neoformat'
 
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
 " Asynchronous Lint Engine
 Plug 'fiuzagr/ale', { 'branch': 'sonarjs' }
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {'javascript': ['sonarjs', 'eslint']}
 let g:ale_fix_on_save = 1
+let g:ale_kotlin_ktlint_executable = 'ktlint'
+let g:ale_kotlin_ktlint_rulesets = [ g:vimCustomPath . '/ktlint-ruleset-mira.jar']
+let g:ale_kotlin_ktlint_format = 1
 
 " Load env plugins
 call myenv#load#plug()

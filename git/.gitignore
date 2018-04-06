@@ -167,7 +167,7 @@ fabric.properties
 *.dbf
 *.mdb
 *.pdb
-*.sql
+# *.sql
 *.sqlite3
 
 ### Eclipse ###

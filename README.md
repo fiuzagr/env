@@ -1,3 +1,9 @@
+# DEPRECATED
+
+This project is abandoned in favor of [Îagûara Oka](https://github.com/iaguara/oka).
+
+---
+
 # env
 
 ```shell
